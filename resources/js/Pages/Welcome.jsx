@@ -1,8 +1,4 @@
 import { Head, Link } from '@inertiajs/react';
-import { Button } from "@/components/ui/button"; // Assuming you have these Shadcn components
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Award, Dumbbell, Flame, Shield } from "lucide-react";
 
 export default function Welcome({ auth }) {
   return (
@@ -13,7 +9,7 @@ export default function Welcome({ auth }) {
           <div
             className="bg-cover bg-center opacity-20 h-full w-full"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`, // Dungeon gate
+              backgroundImage: `url('https://wallpapercave.com/wp/wp8170287.jpg')`, // Dungeon gate
             }}
           ></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
@@ -21,7 +17,6 @@ export default function Welcome({ auth }) {
 
         <nav className="relative z-10 flex items-center justify-between p-6">
           <div className="flex items-center gap-2">
-            <Shield className="h-8 w-8 text-green-500" />
             <span className="text-2xl font-bold tracking-tight text-green-400">Solo Fitness System</span>
           </div>
           <div className="hidden md:flex items-center gap-6">
@@ -38,11 +33,13 @@ export default function Welcome({ auth }) {
               About
             </a>
           </div>
-          <Button className="bg-green-600 hover:bg-green-700 text-white">Join the Hunt</Button>
+          <Link href={route('register')}>
+            <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Join the Hunt</button>
+          </Link>
         </nav>
 
         <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4">
-          <Badge className="mb-4 bg-green-900/60 text-green-300 hover:bg-green-900/60">RISE TO POWER</Badge>
+          <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">RISE TO POWER</span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight">
             <span className="block">AWAKEN YOUR</span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-red-500">INNER HUNTER</span>
@@ -52,14 +49,14 @@ export default function Welcome({ auth }) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href={route('register')}>
-              <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
-                Register Now <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-bold">
+                Register Now <span className="ml-2">→</span>
+              </button>
             </Link>
             <Link href={route('login')}>
-              <Button size="lg" variant="outline" className="border-green-600 text-green-400 hover:bg-green-950/50">
+              <button className="border-green-600 text-green-400 hover:bg-green-950/50 px-6 py-3 rounded font-bold border">
                 Log In
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
@@ -69,7 +66,7 @@ export default function Welcome({ auth }) {
       <section id="features" className="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-900/60 text-green-300 hover:bg-green-900/60">FEATURES</Badge>
+            <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">FEATURES</span>
             <h2 className="text-3xl md:text-5xl font-bold text-green-400 mb-4">Forge Your Destiny</h2>
             <p className="max-w-2xl mx-auto text-gray-300">
               The Solo Fitness System turns every workout into a step toward greatness with these powerful features.
@@ -77,41 +74,26 @@ export default function Welcome({ auth }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-gray-800 border-green-800/50">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="h-16 w-16 rounded-full bg-green-900/60 flex items-center justify-center mb-4">
-                  <Award className="h-8 w-8 text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-green-400 mb-2">Rank System</h3>
-                <p className="text-gray-300">
-                  Start as an E-Rank Hunter and ascend to S-Rank based on your physique and progress.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg flex flex-col items-center text-center">
+              <h3 className="text-xl font-bold text-green-400 mb-2">Rank System</h3>
+              <p className="text-gray-300">
+                Start as an E-Rank Hunter and ascend to S-Rank based on your physique and progress.
+              </p>
+            </div>
 
-            <Card className="bg-gray-800 border-green-800/50">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="h-16 w-16 rounded-full bg-green-900/60 flex items-center justify-center mb-4">
-                  <Dumbbell className="h-8 w-8 text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-green-400 mb-2">Daily Quests</h3>
-                <p className="text-gray-300">
-                  Receive tailored fitness challenges daily—complete them to earn XP and grow stronger.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg flex flex-col items-center text-center">
+              <h3 className="text-xl font-bold text-green-400 mb-2">Daily Quests</h3>
+              <p className="text-gray-300">
+                Receive tailored fitness challenges daily—complete them to earn XP and grow stronger.
+              </p>
+            </div>
 
-            <Card className="bg-gray-800 border-green-800/50">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <div className="h-16 w-16 rounded-full bg-green-900/60 flex items-center justify-center mb-4">
-                  <Flame className="h-8 w-8 text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-green-400 mb-2">Level Progression</h3>
-                <p className="text-gray-300">
-                  Gain XP to level up, unlocking tougher quests and higher ranks as you evolve.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg flex flex-col items-center text-center">
+              <h3 className="text-xl font-bold text-green-400 mb-2">Level Progression</h3>
+              <p className="text-gray-300">
+                Gain XP to level up, unlocking tougher quests and higher ranks as you evolve.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -120,7 +102,7 @@ export default function Welcome({ auth }) {
       <section id="how-it-works" className="py-20 px-4 bg-gray-900">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-900/60 text-green-300 hover:bg-green-900/60">HOW IT WORKS</Badge>
+            <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">HOW IT WORKS</span>
             <h2 className="text-3xl md:text-5xl font-bold text-green-400 mb-4">Rules of the System</h2>
             <p className="max-w-2xl mx-auto text-gray-300">
               Follow these steps to rise through the ranks and master your fitness journey.
@@ -194,7 +176,7 @@ export default function Welcome({ auth }) {
       <section id="ranks" className="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-900/60 text-green-300 hover:bg-green-900/60">RANK SYSTEM</Badge>
+            <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">RANK SYSTEM</span>
             <h2 className="text-3xl md:text-5xl font-bold text-green-400 mb-4">Hunter Ranks</h2>
             <p className="max-w-2xl mx-auto text-gray-300">
               Your rank defines your power. Climb from E to S and beyond.
@@ -202,60 +184,45 @@ export default function Welcome({ auth }) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            <Card className="bg-gray-800 border-gray-700 hover:border-green-500 transition-colors">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Badge className="mb-4 bg-gray-700 hover:bg-gray-700">E RANK</Badge>
-                <Award className="h-12 w-12 text-gray-400 mb-4" />
-                <h3 className="text-xl font-bold text-green-400 mb-2">Weakling</h3>
-                <p className="text-gray-300 text-sm">
-                  The starting point. Basic tasks to build your foundation.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-gray-700 hover:border-green-500 transition-colors p-6 rounded-lg flex flex-col items-center text-center">
+              <span className="mb-4 inline-block bg-gray-700 text-gray-300 px-2 py-1 rounded">E RANK</span>
+              <h3 className="text-xl font-bold text-green-400 mb-2">Weakling</h3>
+              <p className="text-gray-300 text-sm">
+                The starting point. Basic tasks to build your foundation.
+              </p>
+            </div>
 
-            <Card className="bg-gray-800 border-green-900/50 hover:border-green-700/50 transition-colors">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Badge className="mb-4 bg-green-900/60 text-green-300 hover:bg-green-900/60">D RANK</Badge>
-                <Award className="h-12 w-12 text-green-500 mb-4" />
-                <h3 className="text-xl font-bold text-green-400 mb-2">Novice</h3>
-                <p className="text-gray-300 text-sm">
-                  Growing stronger with moderate challenges and consistency.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-green-900/50 hover:border-green-700/50 transition-colors p-6 rounded-lg flex flex-col items-center text-center">
+              <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">D RANK</span>
+              <h3 className="text-xl font-bold text-green-400 mb-2">Novice</h3>
+              <p className="text-gray-300 text-sm">
+                Growing stronger with moderate challenges and consistency.
+              </p>
+            </div>
 
-            <Card className="bg-gray-800 border-blue-900/50 hover:border-blue-700/50 transition-colors">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Badge className="mb-4 bg-blue-900/60 text-blue-300 hover:bg-blue-900/60">C RANK</Badge>
-                <Award className="h-12 w-12 text-blue-500 mb-4" />
-                <h3 className="text-xl font-bold text-green-400 mb-2">Warrior</h3>
-                <p className="text-gray-300 text-sm">
-                  Balanced strength and endurance with tougher quests.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-blue-900/50 hover:border-blue-700/50 transition-colors p-6 rounded-lg flex flex-col items-center text-center">
+              <span className="mb-4 inline-block bg-blue-900/60 text-blue-300 px-2 py-1 rounded">C RANK</span>
+              <h3 className="text-xl font-bold text-green-400 mb-2">Warrior</h3>
+              <p className="text-gray-300 text-sm">
+                Balanced strength and endurance with tougher quests.
+              </p>
+            </div>
 
-            <Card className="bg-gray-800 border-red-900/50 hover:border-red-700/50 transition-colors">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Badge className="mb-4 bg-red-900/60 text-red-300 hover:bg-red-900/60">B RANK</Badge>
-                <Award className="h-12 w-12 text-red-500 mb-4" />
-                <h3 className="text-xl font-bold text-green-400 mb-2">Elite</h3>
-                <p className="text-gray-300 text-sm">
-                  High-intensity training for the dedicated hunter.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-red-900/50 hover:border-red-700/50 transition-colors p-6 rounded-lg flex flex-col items-center text-center">
+              <span className="mb-4 inline-block bg-red-900/60 text-red-300 px-2 py-1 rounded">B RANK</span>
+              <h3 className="text-xl font-bold text-green-400 mb-2">Elite</h3>
+              <p className="text-gray-300 text-sm">
+                High-intensity training for the dedicated hunter.
+              </p>
+            </div>
 
-            <Card className="bg-gray-800 border-yellow-900/50 hover:border-yellow-700/50 transition-colors">
-              <CardContent className="p-6 flex flex-col items-center text-center">
-                <Badge className="mb-4 bg-yellow-900/60 text-yellow-300 hover:bg-yellow-900/60">S RANK</Badge>
-                <Award className="h-12 w-12 text-yellow-500 mb-4" />
-                <h3 className="text-xl font-bold text-green-400 mb-2">Monarch</h3>
-                <p className="text-gray-300 text-sm">
-                  Peak performance—only the strongest reach this rank.
-                </p>
-              </CardContent>
-            </Card>
+            <div className="bg-gray-800 border border-yellow-900/50 hover:border-yellow-700/50 transition-colors p-6 rounded-lg flex flex-col items-center text-center">
+              <span className="mb-4 inline-block bg-yellow-900/60 text-yellow-300 px-2 py-1 rounded">S RANK</span>
+              <h3 className="text-xl font-bold text-green-400 mb-2">Monarch</h3>
+              <p className="text-gray-300 text-sm">
+                Peak performance—only the strongest reach this rank.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -264,24 +231,22 @@ export default function Welcome({ auth }) {
       <section id="about" className="py-20 px-4 bg-gray-900">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
-            <Badge className="mb-4 bg-green-900/60 text-green-300 hover:bg-green-900/60">ABOUT</Badge>
+            <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">ABOUT</span>
             <h2 className="text-3xl md:text-5xl font-bold text-green-400 mb-4">The Solo Fitness System</h2>
             <p className="max-w-2xl mx-auto text-gray-300">
               Discover the power behind the system that turns fitness into a legendary quest.
             </p>
           </div>
 
-          <Card className="bg-gray-800 border-green-800/50">
-            <CardContent className="p-6 text-gray-100">
-              <p className="leading-relaxed">
-                Inspired by the epic tale of "Solo Leveling," the Solo Fitness System is more than a fitness app—it’s a 
-                call to action. Built for those who dare to rise from weakness, it combines gamification with real-world 
-                fitness goals. Whether you’re lifting your first weight or chasing S-Rank glory, the System adapts, 
-                challenges, and rewards you. Join a community of hunters, conquer your limits, and etch your name in 
-                the annals of strength.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg text-gray-100">
+            <p className="leading-relaxed">
+              Inspired by the epic tale of "Solo Leveling," the Solo Fitness System is more than a fitness app—it’s a 
+              call to action. Built for those who dare to rise from weakness, it combines gamification with real-world 
+              fitness goals. Whether you’re lifting your first weight or chasing S-Rank glory, the System adapts, 
+              challenges, and rewards you. Join a community of hunters, conquer your limits, and etch your name in 
+              the annals of strength.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -297,21 +262,21 @@ export default function Welcome({ auth }) {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 {auth.user ? (
                   <Link href={route('dashboard')}>
-                    <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
+                    <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-bold">
                       Enter the Dungeon
-                    </Button>
+                    </button>
                   </Link>
                 ) : (
                   <>
                     <Link href={route('register')}>
-                      <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                      <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded font-bold">
                         Register Now
-                      </Button>
+                      </button>
                     </Link>
                     <Link href={route('login')}>
-                      <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
+                      <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-bold">
                         Log In
-                      </Button>
+                      </button>
                     </Link>
                   </>
                 )}
@@ -327,7 +292,6 @@ export default function Welcome({ auth }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Shield className="h-6 w-6 text-green-500" />
                 <span className="text-xl font-bold text-green-400">Solo Fitness System</span>
               </div>
               <p className="text-gray-400">
