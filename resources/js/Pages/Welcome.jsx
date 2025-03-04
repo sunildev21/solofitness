@@ -1,26 +1,37 @@
 import { Head, Link } from '@inertiajs/react';
 import { User, Award, Zap, ArrowUp } from 'lucide-react';
 import TextPressure from './TextPressure';
-
+import { useState , useEffect  } from 'react';
 
 export default function Welcome({ auth }) {
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+    
+      if (window.scrollY > 60) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+   
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white">
+       <Head title="Solo Fitness - Arise" />
       {/* Hero Section */}
       <header className="relative w-full h-screen flex flex-col">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="bg-cover bg-center opacity-20 h-full w-full"
-            style={{
-              backgroundImage: `url('https://wallpapercave.com/wp/wp8170287.jpg')`, // Dungeon gate
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"></div>
-        </div>
-
-        <nav className="relative z-10 flex items-center justify-between px-12">
+        <nav className={` z-50 fixed flex items-center justify-between md:px-12 px-2 w-full ${isScrolled ? 'bg-[#0a1713] bg-opacity-85  backdrop-blur-md' : 'bg-transparent' }`}>
           <div className="flex items-center gap-2">
-            <img src="/images/solo-fitness-logo.png" alt="Solo Fitness System Logo" className="h-32 w-32" />
+            <img src="/images/solo-fitness-logo.png" alt="Solo Fitness System Logo" className="h-28 w-full p-2" />
           </div>
           <div className="hidden md:flex items-center gap-6">
             <a href="#features" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
@@ -40,7 +51,15 @@ export default function Welcome({ auth }) {
             <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Join the Hunt</button>
           </Link>
         </nav>
-
+        <div className="absolute inset-0 z-0">
+          <div
+            className="bg-cover bg-center opacity-20 h-full w-full"
+            style={{
+              backgroundImage: `url('https://wallpapercave.com/wp/wp8170287.jpg')`, // Dungeon gate
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"></div>
+        </div>
         <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4">
           <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">RISE TO POWER</span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight">
