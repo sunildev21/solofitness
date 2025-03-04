@@ -1,4 +1,7 @@
 import { Head, Link } from '@inertiajs/react';
+import { User, Award, Zap, ArrowUp } from 'lucide-react';
+import TextPressure from './TextPressure';
+
 
 export default function Welcome({ auth }) {
   return (
@@ -12,12 +15,12 @@ export default function Welcome({ auth }) {
               backgroundImage: `url('https://wallpapercave.com/wp/wp8170287.jpg')`, // Dungeon gate
             }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"></div>
         </div>
 
-        <nav className="relative z-10 flex items-center justify-between p-6">
+        <nav className="relative z-10 flex items-center justify-between px-12">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold tracking-tight text-green-400">Solo Fitness System</span>
+            <img src="/images/solo-fitness-logo.png" alt="Solo Fitness System Logo" className="h-32 w-32" />
           </div>
           <div className="hidden md:flex items-center gap-6">
             <a href="#features" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
@@ -46,7 +49,7 @@ export default function Welcome({ auth }) {
           </h1>
           <p className="max-w-2xl text-lg md:text-xl text-gray-300 mb-8">
             Transform your fitness journey into a quest for greatness. Rank up, conquer challenges, and become a legend.
-          </p>
+          </p>            
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href={route('register')}>
               <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-bold">
@@ -62,6 +65,23 @@ export default function Welcome({ auth }) {
         </div>
       </header>
 
+        <section>
+            
+        <div style={{position: 'relative'}}>
+            <TextPressure
+                text="ARISE"
+                flex={true}
+                alpha={false}
+                stroke={false}
+                width={true}
+                weight={true}
+                italic={true}
+                textColor="#ffffff"
+                strokeColor="#ff0000"
+                minFontSize={36}
+            />
+        </div>
+        </section>
       {/* Features Section */}
       <section id="features" className="py-20 px-4 bg-gradient-to-b from-gray-900 to-gray-800">
         <div className="container mx-auto max-w-5xl">
@@ -75,13 +95,17 @@ export default function Welcome({ auth }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg flex flex-col items-center text-center">
-              <h3 className="text-xl font-bold text-green-400 mb-2">Rank System</h3>
+            <User className="h-11 w-11 pb-3 text-green-500" /> 
+              <h3 className="text-xl font-bold text-green-400 mb-2 flex items-center gap-2">
+                Join the System
+              </h3>              
               <p className="text-gray-300">
                 Start as an E-Rank Hunter and ascend to S-Rank based on your physique and progress.
               </p>
             </div>
 
             <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg flex flex-col items-center text-center">
+            <Award className="h-11 w-11 pb-3 text-blue-500" />
               <h3 className="text-xl font-bold text-green-400 mb-2">Daily Quests</h3>
               <p className="text-gray-300">
                 Receive tailored fitness challenges daily—complete them to earn XP and grow stronger.
@@ -89,6 +113,7 @@ export default function Welcome({ auth }) {
             </div>
 
             <div className="bg-gray-800 border border-green-800/50 p-6 rounded-lg flex flex-col items-center text-center">
+            <ArrowUp className="h-11 w-11 pb-3 text-red-500" />
               <h3 className="text-xl font-bold text-green-400 mb-2">Level Progression</h3>
               <p className="text-gray-300">
                 Gain XP to level up, unlocking tougher quests and higher ranks as you evolve.
@@ -96,6 +121,7 @@ export default function Welcome({ auth }) {
             </div>
           </div>
         </div>
+
       </section>
 
       {/* How It Works (Rules) */}
