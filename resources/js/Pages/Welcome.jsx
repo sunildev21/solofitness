@@ -28,14 +28,15 @@ export default function Welcome({ auth }) {
     <div className="flex flex-col min-h-screen bg-gray-900 text-white">
       {/* Hero Section */}
       <header className="relative w-full h-screen flex flex-col">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="bg-cover bg-center opacity-20 h-full w-full"
-            style={{
-              backgroundImage: `url('https://wallpapercave.com/wp/wp8170287.jpg')`, // Dungeon gate
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"></div>
+        <div className="absolute inset-0">
+          <iframe
+            src="https://skybox.blockadelabs.com/e/8d91c154155bab8bb56e08d363460587"
+            className="h-full w-full"
+            allow="fullscreen"
+            title="Background Scene"
+          />
+          {/* Optional gradient overlay */}
+          {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700 opacity-50"></div> */}
         </div>
 
         <nav className="relative z-10 flex items-center justify-between px-12">
