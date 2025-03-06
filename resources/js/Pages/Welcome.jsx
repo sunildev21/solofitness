@@ -6,64 +6,93 @@ import TextPressure from './TextPressure';
 export default function Welcome({ auth }) {
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 text-white">
+      <style jsx>{`
+        .transition-colors {S
+          display: none;
+        }
+      `}</style>
       {/* Hero Section */}
-      <header className="relative w-full h-screen flex flex-col">
-        <div className="absolute inset-0 z-0">
-          <div
-            className="bg-cover bg-center opacity-20 h-full w-full"
-            style={{
-              backgroundImage: `url('https://wallpapercave.com/wp/wp8170287.jpg')`, // Dungeon gate
-            }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700"></div>
-        </div>
+      <header className=" w-full h-screen flex flex-col">
+  {/* Background Iframe */}
+  <div className="absolute inset-0">
+    <iframe
+      src="https://skybox.blockadelabs.com/e/8d91c154155bab8bb56e08d363460587"
+      className="h-full w-full"
+      allow="fullscreen"
+      title="Background Scene"
+    />
+    {/* Optional gradient overlay */}
+    {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-700 opacity-50"></div> */}
+  </div>
 
-        <nav className="relative z-10 flex items-center justify-between px-12">
-          <div className="flex items-center gap-2">
-            <img src="/images/solo-fitness-logo.png" alt="Solo Fitness System Logo" className="h-32 w-32" />
-          </div>
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
-              Features
-            </a>
-            <a href="#how-it-works" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
-              How It Works
-            </a>
-            <a href="#ranks" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
-              Ranks
-            </a>
-            <a href="#about" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
-              About
-            </a>
-          </div>
-          <Link href={route('register')}>
-            <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Join the Hunt</button>
-          </Link>
-        </nav>
+  {/* Navigation */}
+  <nav className="relative z-10 flex items-center justify-between px-12 py-4">
+    <div className="flex items-center gap-2">
+      <img
+        src="/images/solo-fitness-logo.png"
+        alt="Solo Fitness System Logo"
+        className="h-32 w-32"
+      />
+    </div>
+    <div className="hidden md:flex items-center gap-6">
+      <a
+        href="#features"
+        className="text-sm text-gray-300 hover:text-green-400 transition-colors"
+      >
+        Features
+      </a>
+      <a
+        href="#how-it-works"
+        className="text-sm text-gray-300 hover:text-green-400 transition-colors"
+      >
+        How It Works
+      </a>
+      <a
+        href="#ranks"
+        className="text-sm text-gray-300 hover:text-green-400 transition-colors"
+      >
+        Ranks
+      </a>
+      <a
+        href="#about"
+        className="text-sm text-gray-300 hover:text-green-400 transition-colors"
+      >
+        About
+      </a>
+    </div>
+    <Link href={route('register')}>
+      <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+        Join the Hunt
+      </button>
+    </Link>
+  </nav>
 
-        <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4">
-          <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">RISE TO POWER</span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight">
-            <span className="block">AWAKEN YOUR</span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-red-500">INNER HUNTER</span>
-          </h1>
-          <p className="max-w-2xl text-lg md:text-xl text-gray-300 mb-8">
-            Transform your fitness journey into a quest for greatness. Rank up, conquer challenges, and become a legend.
-          </p>            
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href={route('register')}>
-              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-bold">
-                Register Now <span className="ml-2">→</span>
-              </button>
-            </Link>
-            <Link href={route('login')}>
-              <button className="border-green-600 text-green-400 hover:bg-green-950/50 px-6 py-3 rounded font-bold border">
-                Log In
-              </button>
-            </Link>
-          </div>
-        </div>
-      </header>
+  {/* Main Content */}
+  <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4">
+    {/* Add your content here if you want to uncomment it */}
+    {/* Example: */}
+    <span className="mb-4 inline-block bg-green-900/60 text-green-300 px-2 py-1 rounded">RISE TO POWER</span>
+    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 tracking-tight">
+      <span className="block">AWAKEN YOUR</span>
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-red-500">INNER HUNTER</span>
+    </h1>
+    <p className="max-w-2xl text-lg md:text-xl text-gray-300 mb-8">
+      Transform your fitness journey into a quest for greatness. Rank up, conquer challenges, and become a legend.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4">
+      <Link href={route('register')}>
+        <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded font-bold">
+          Register Now <span className="ml-2">→</span>
+        </button>
+      </Link>
+      <Link href={route('login')}>
+        <button className="border-green-600 text-green-400 hover:bg-green-950/50 px-6 py-3 rounded font-bold border">
+          Log In
+        </button>
+      </Link>
+    </div>
+  </div>
+</header>
 
         <section>
             
