@@ -25,7 +25,7 @@ export default function Register() {
 
     return (
         <GuestLayout>
-            <Head title="Hunter Registration" />
+            <Head title="Hunter Registration - Solo Fitness" />
 
             <div className="p-6 bg-gray-800 border border-green-500 shadow-lg shadow-green-500/50 rounded-lg">
                 <h1 className="text-2xl font-bold text-green-400 mb-4 text-center">
