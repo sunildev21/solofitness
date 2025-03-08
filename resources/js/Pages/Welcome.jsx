@@ -366,7 +366,7 @@ export default function Welcome({ auth }) {
 
           <div className="border-t border-gray-800 mt-12 pt-8 text-center">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} Solo Fitness System. Inspired by "Solo Leveling." | Design and developed By <a href="nexbytes.rf.gd">Nexbytes</a>
+              © {new Date().getFullYear()} Solo Fitness System. Inspired by "Solo Leveling." | Design and developed By <a href="https://nexbytes.rf.gd">Nexbytes</a>
             </p>
           </div>
         </div>
