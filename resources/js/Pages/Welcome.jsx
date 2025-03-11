@@ -41,7 +41,7 @@ export default function Welcome({ auth }) {
 
         <nav className="relative z-10 flex items-center justify-between px-12">
           <div className="flex items-center gap-2">
-            <img src="/images/solo-fitness-logo.png" alt="Solo Fitness System Logo" className="h-32 w-32" />
+            <img src="/images/solo-fitness-logo.png" alt="Solo Fitness System Logo" className="h-28" />
           </div>
           <div className="hidden md:flex items-center gap-6">
             <a href="#features" className="text-sm text-gray-300 hover:text-green-400 transition-colors">
